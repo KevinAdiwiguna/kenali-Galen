@@ -31,7 +31,6 @@ export default function QuizPage() {
 
 	const handleNext = () => {
 		if (selectedOption) {
-			// Save the answer
 			const newAnswer: Answer = {
 				questionId: currentQuestion.id,
 				type: selectedOption as "phlegmatic" | "sanguine" | "melancholic" | "choleric",
@@ -48,12 +47,10 @@ export default function QuizPage() {
 
 			setAnswers(updatedAnswers);
 
-			// Move to next question or finish
 			if (currentQuestionIndex < questions.length - 1) {
 				setCurrentQuestionIndex(currentQuestionIndex + 1);
 				setSelectedOption(null);
 			} else {
-				// Calculate results and navigate to results page
 				const results = calculateResults(updatedAnswers);
 				const resultsParam = encodeURIComponent(JSON.stringify(results));
 				router.push(`/results?data=${resultsParam}`);
@@ -65,7 +62,6 @@ export default function QuizPage() {
 		if (currentQuestionIndex > 0) {
 			setCurrentQuestionIndex(currentQuestionIndex - 1);
 
-			// Pre-select the previous answer if it exists
 			const previousAnswer = answers.find((a) => a.questionId === questions[currentQuestionIndex - 1].id);
 			setSelectedOption(previousAnswer ? previousAnswer.type : null);
 		}

@@ -34,7 +34,6 @@ export default function ResultsPage() {
 				const parsedData = JSON.parse(decodeURIComponent(data)) as ResultsData;
 				setResults(parsedData);
 
-				// Sort temperaments by percentage (highest first)
 				const tempArray: Array<[string, number]> = [
 					["phlegmatic", parsedData.phlegmatic],
 					["sanguine", parsedData.sanguine],
@@ -89,20 +88,17 @@ export default function ResultsPage() {
 		const nickname = prompt("Masukkan nama panggilan kamu:");
 		if (!nickname || !results) return;
 
-		// Urutkan kepribadian dari dominan ke kecil
 		const sorted = [...sortedTemperaments].sort((a, b) => b[1] - a[1]);
 
-		// Warna sesuai tailwind-500
 		const temperamentColors: Record<string, string> = {
-			phlegmatic: "#3B82F6", // blue-500
-			sanguine: "#22C55E", // green-500
-			melancholic: "#8B5CF6", // purple-500
-			choleric: "#EF4444", // red-500
+			phlegmatic: "#3B82F6",
+			sanguine: "#22C55E",
+			melancholic: "#8B5CF6",
+			choleric: "#EF4444",
 		};
 
-		// Ukuran canvas untuk A4 landscape (96 dpi)
-		const canvasWidth = 1123; // ~297mm in px
-		const canvasHeight = 794; // ~210mm in px
+		const canvasWidth = 1123;
+		const canvasHeight = 794;
 
 		const canvas = document.createElement("canvas");
 		canvas.width = canvasWidth;
@@ -110,29 +106,21 @@ export default function ResultsPage() {
 		const ctx = canvas.getContext("2d");
 		if (!ctx) return;
 
-		// --- Background putih (hilangkan warna dominan) ---
 		ctx.fillStyle = "#ffffff";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-		// --- Kotak putih (bisa diganti border box) ---
 		const padding = 50;
 		const boxX = padding;
 		const boxY = padding;
 		const boxWidth = canvas.width - padding * 2;
 		const boxHeight = canvas.height - padding * 2;
 
-		// Bisa diganti dengan stroke kotak untuk batas saja, sekarang fill putih sudah menutupi
-		// ctx.fillStyle = "#ffffff";
-		// ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
-
-		// --- Teks Nama (lebih besar) ---
-		ctx.fillStyle = "#000000"; // warna hitam agar kontras
+		ctx.fillStyle = "#000000";
 		ctx.font = "bold 80px Arial";
 		ctx.textAlign = "center";
 		ctx.textBaseline = "middle";
 		ctx.fillText(nickname.toUpperCase(), canvas.width / 2, canvas.height / 2 - 100);
 
-		// --- Garis separator ---
 		ctx.strokeStyle = "#ccc";
 		ctx.lineWidth = 2;
 		ctx.beginPath();
@@ -140,7 +128,6 @@ export default function ResultsPage() {
 		ctx.lineTo(boxX + boxWidth - 30, canvas.height / 2 - 60);
 		ctx.stroke();
 
-		// --- Galen Initials (lebih besar) ---
 		ctx.font = "bold 100px Arial";
 		const spacing = 150;
 		const total = sorted.length;
@@ -168,7 +155,6 @@ export default function ResultsPage() {
 			ctx.fillText(initial, x, y);
 		});
 
-		// --- Convert ke PDF ---
 		const imgData = canvas.toDataURL("image/png");
 		const pdf = new jsPDF({
 			orientation: "landscape",
@@ -192,7 +178,6 @@ export default function ResultsPage() {
 
 			const blob = await (await fetch(imgData)).blob();
 
-			// Check if Web Share API is available
 			if (navigator.share) {
 				await navigator.share({
 					title: "Hasil Tes Kenali Galen Saya",
@@ -200,10 +185,8 @@ export default function ResultsPage() {
 					files: [new File([blob], "hasil-galen.png", { type: "image/png" })],
 				});
 			} else {
-				// Fallback for browsers that don't support sharing files
 				const shareUrl = URL.createObjectURL(blob);
 
-				// Create a temporary link to download the image
 				const a = document.createElement("a");
 				a.href = shareUrl;
 				a.download = "hasil-temperamen.png";
@@ -380,6 +363,9 @@ export default function ResultsPage() {
 										))}
 									</ul>
 								</div>
+							</div>
+							<div>
+								<h2 className="text-center mt-12 text-2xl font-semibold">Galen Anda seperti Tokoh</h2>
 							</div>
 						</CardContent>
 					</Card>
