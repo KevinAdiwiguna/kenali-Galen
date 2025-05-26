@@ -91,7 +91,9 @@ export default function Home() {
 			</main>
 
 			<footer className="border-t border-border py-6">
-				<div className="container mx-auto px-4 text-center text-muted-foreground text-sm">© {new Date().getFullYear()} Tes Kenali Galen. Semua hak dilindungi.</div>
+				<div className="container mx-auto px-4 text-center text-muted-foreground text-sm">
+					© {new Date().getFullYear()} Kenali Galen. <Link href={"https://github.com/KevinAdiwiguna"}>KevinAdiwiguna</Link>
+				</div>
 			</footer>
 		</div>
 	);
