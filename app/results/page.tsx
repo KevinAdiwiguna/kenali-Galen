@@ -366,6 +366,12 @@ export default function ResultsPage() {
 							</div>
 							<div>
 								<h2 className="text-center mt-12 text-2xl font-semibold">Galen Anda seperti Tokoh</h2>
+								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mt-4">
+									<Image src={`/images/${dominantInfo.title}/1.png`} alt={`${dominantInfo.title} Image 1`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
+									<Image src={`/images/${dominantInfo.title}/2.png`} alt={`${dominantInfo.title} Image 2`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
+									<Image src={`/images/${dominantInfo.title}/3.png`} alt={`${dominantInfo.title} Image 3`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
+									<Image src={`/images/${dominantInfo.title}/4.png`} alt={`${dominantInfo.title} Image 4`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
+								</div>
 							</div>
 						</CardContent>
 					</Card>
