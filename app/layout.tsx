@@ -31,7 +31,6 @@ export default function RootLayout({
 			</head>
 			<body className={inter.className}>
 				<ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} disableTransitionOnChange={false} storageKey="temperament-theme">
-					<GoogleAdSense adClient="ca-pub-9394949604148306" />
 					{children}
 				</ThemeProvider>
 			</body>
