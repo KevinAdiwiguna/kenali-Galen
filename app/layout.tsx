@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
+import GoogleAdSense from "@/components/googleAds";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,13 +24,12 @@ export default function RootLayout({
 	return (
 		<html lang="id" suppressHydrationWarning>
 			<head>
-				{/* Meta untuk Google AdSense */}
 				<meta name="google-adsense-account" content="ca-pub-9394949604148306" />
-				{/* Script Google AdSense */}
 				<Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394949604148306" crossOrigin="anonymous" strategy="afterInteractive" />
 			</head>
 			<body className={inter.className}>
 				<ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} disableTransitionOnChange={false} storageKey="temperament-theme">
+					<GoogleAdSense adClient="ca-pub-9394949604148306" />
 					{children}
 				</ThemeProvider>
 			</body>
