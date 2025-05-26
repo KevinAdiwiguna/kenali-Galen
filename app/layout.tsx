@@ -22,7 +22,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="id" suppressHydrationWarning>
-			<Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394949604148306" crossOrigin="anonymous" />
+			<head>
+				{/* Meta untuk Google AdSense */}
+				<meta name="google-adsense-account" content="ca-pub-9394949604148306" />
+				{/* Script Google AdSense */}
+				<Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394949604148306" crossOrigin="anonymous" strategy="afterInteractive" />
+			</head>
 			<body className={inter.className}>
 				<ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} disableTransitionOnChange={false} storageKey="temperament-theme">
 					{children}
