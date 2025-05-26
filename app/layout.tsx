@@ -1,35 +1,31 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tes Kepribadian Empat Temperamen",
-  description:
-    "Temukan tipe kepribadianmu berdasarkan empat temperamen klasik: Plegmatis, Sanguinis, Melankolis, dan Koleris.",
-}
+	title: "Tes Kepribadian Kenali Galen",
+	description: "Temukan tipe kepribadianmu berdasarkan Kenali Galen klasik: Plegmatis, Sanguinis, Melankolis, dan Koleris.",
+	icons: {
+		icon: "/favicon.ico",
+	},
+};
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="id" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={true}
-          disableTransitionOnChange={false}
-          storageKey="temperament-theme"
-        >
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+	return (
+		<html lang="id" suppressHydrationWarning>
+			<body className={inter.className}>
+				<ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} disableTransitionOnChange={false} storageKey="temperament-theme">
+					{children}
+				</ThemeProvider>
+			</body>
+		</html>
+	);
 }
