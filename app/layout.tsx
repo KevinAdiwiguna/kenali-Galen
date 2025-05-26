@@ -36,7 +36,7 @@ export default function RootLayout({
 					gtag('config', 'G-S21QKK1FW3');
   					`}
 				</Script>
-
+				<Script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f8f1dced-37c0-4155-b909-5672b9e7d8cc" type="text/javascript" async></Script>
 				<Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394949604148306" crossOrigin="anonymous" strategy="afterInteractive" />
 			</head>
 			<body className={inter.className}>
