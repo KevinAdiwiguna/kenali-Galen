@@ -246,18 +246,18 @@ export default function ResultsPage() {
 				<div className="container mx-auto px-4 py-6 flex justify-between items-center">
 					<Link href={"/"} className="flex justify-center items-center">
 						<Image src={"/galen-logo.png"} alt="Galen Logo" width={60} height={60} className="inline-block mr-2" />
-						<h1 className="text-2xl font-semibold">Kenali Galen</h1>
+						<h1 className="text-base lg:text-2xl font-semibold">Kenali Galen</h1>
 					</Link>
 					<div className="flex items-center space-x-2">
 						<Button variant="outline" size="sm" onClick={downloadGalenCard}>
 							<Download className="h-4 w-4 mr-2" />
 							Buat Galen
 						</Button>
-						<Button variant="outline" size="sm" onClick={downloadAsPDF}>
+						<Button className="hidden md:flex" variant="outline" size="sm" onClick={downloadAsPDF}>
 							<Download className="h-4 w-4 mr-2" />
 							Unduh
 						</Button>
-						<Button variant="outline" size="sm" onClick={shareResults}>
+						<Button className="hidden md:flex" variant="outline" size="sm" onClick={shareResults}>
 							<Share2 className="h-4 w-4 mr-2" />
 							Bagikan
 						</Button>
@@ -365,12 +365,12 @@ export default function ResultsPage() {
 								</div>
 							</div>
 							<div>
-								<h2 className="text-center mt-12 text-2xl font-semibold">Galen Anda seperti Tokoh</h2>
-								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mt-4">
-									<Image src={`/images/${dominantInfo.title}/1.png`} alt={`${dominantInfo.title} Image 1`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
-									<Image src={`/images/${dominantInfo.title}/2.png`} alt={`${dominantInfo.title} Image 2`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
-									<Image src={`/images/${dominantInfo.title}/3.png`} alt={`${dominantInfo.title} Image 3`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
-									<Image src={`/images/${dominantInfo.title}/4.png`} alt={`${dominantInfo.title} Image 4`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto" />
+								<h2 className="text-center my-12 text-2xl font-semibold">Galen Anda seperti Tokoh</h2>
+								<div className="grid grid-cols-4 gap-4 mt-4">
+									<Image src={`/images/${dominantInfo.title}/1.png`} alt={`${dominantInfo.title} Image 1`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto !bg-transparent" />
+									<Image src={`/images/${dominantInfo.title}/2.png`} alt={`${dominantInfo.title} Image 2`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto !bg-transparent" />
+									<Image src={`/images/${dominantInfo.title}/3.png`} alt={`${dominantInfo.title} Image 3`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto !bg-transparent" />
+									<Image src={`/images/${dominantInfo.title}/4.png`} alt={`${dominantInfo.title} Image 4`} width={400} height={400} className="w-full h-auto rounded-lg shadow-lg mx-auto !bg-transparent" />
 								</div>
 							</div>
 						</CardContent>
