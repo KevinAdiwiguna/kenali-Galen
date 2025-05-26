@@ -25,6 +25,8 @@ export default function RootLayout({
 		<html lang="id" suppressHydrationWarning>
 			<head>
 				<meta name="google-adsense-account" content="ca-pub-9394949604148306" />
+				<meta name="google-site-verification" content="ca-pub-9394949604148306" />
+
 				<Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394949604148306" crossOrigin="anonymous" strategy="afterInteractive" />
 			</head>
 			<body className={inter.className}>
